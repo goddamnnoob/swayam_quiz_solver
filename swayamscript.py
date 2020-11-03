@@ -11,6 +11,8 @@ if __name__ == "__main__":
     browser = webdriver.Chrome(executable_path="./drivers/chromedriver")
     browser.get("https://onlinecourses.nptel.ac.in/")
     input("Pls navigate to the assignment page in browser , comeback to terminal and  press enter")
+    browser.find_element_by_class_name("qt-assessment-button-bar").find_element_by_id("submitbutton").click()
+    sleep(15)
     source = browser.page_source
     sleep(1)
     matches=re.findall(r'JSON\.parse\(window\.atob\(\"(.+?)\"\)',source)
