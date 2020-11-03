@@ -39,7 +39,7 @@ if __name__ == "__main__":
             if marks[l]=="0.0":
                 browser.find_element_by_id(ids[l]).find_element_by_id(ids[l]+"."+str(answers[l])).click()
         sleep(10)
-        browser.find_element_by_id("submitbutton")
+        browser.find_element_by_class_name("qt-assessment-button-bar").find_element_by_id("submitbutton").click()
         sleep(15)
         print(str((j+2)*25)+"% "+"completed"+"."*25)
     sleep(5)
