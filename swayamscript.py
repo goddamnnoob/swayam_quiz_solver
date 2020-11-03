@@ -25,7 +25,7 @@ if __name__ == "__main__":
     for i in range(n):
         browser.find_element_by_id(ids[i]).find_element_by_id(ids[i]+"."+str(answers[i])).click()
     sleep(10)
-    browser.find_element_by_id("submitbutton")
+    browser.find_element_by_class_name("qt-assessment-button-bar").find_element_by_id("submitbutton").click()
     sleep(15)
     print("25% completed "+"."*25)
     for j in range(3):
@@ -33,10 +33,10 @@ if __name__ == "__main__":
         matches = re.findall(r'\[(.+?)\]\}',source)
         marks = matches[1].split(", ")
         for k in range(n):
-            if marks[k]=="0":
+            if marks[k]=="0.0":
                 answers[k] = answers[k]+1
         for l in range(n):
-            if marks[l]=="0":
+            if marks[l]=="0.0":
                 browser.find_element_by_id(ids[l]).find_element_by_id(ids[l]+"."+str(answers[l])).click()
         sleep(10)
         browser.find_element_by_id("submitbutton")
